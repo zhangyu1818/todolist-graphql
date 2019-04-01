@@ -291,7 +291,7 @@
                 "name": null,
                 "ofType": {
                   "kind": "OBJECT",
-                  "name": "status",
+                  "name": "updateResponse",
                   "ofType": null
                 }
               },
@@ -332,7 +332,7 @@
                 "name": null,
                 "ofType": {
                   "kind": "OBJECT",
-                  "name": "status",
+                  "name": "updateResponse",
                   "ofType": null
                 }
               },
@@ -367,7 +367,7 @@
                 "name": null,
                 "ofType": {
                   "kind": "OBJECT",
-                  "name": "status",
+                  "name": "updateResponse",
                   "ofType": null
                 }
               },
@@ -412,7 +412,7 @@
                 "name": null,
                 "ofType": {
                   "kind": "OBJECT",
-                  "name": "status",
+                  "name": "updateResponse",
                   "ofType": null
                 }
               },
@@ -427,7 +427,7 @@
         },
         {
           "kind": "OBJECT",
-          "name": "status",
+          "name": "updateResponse",
           "description": "",
           "fields": [
             {
@@ -435,9 +435,33 @@
               "description": "",
               "args": [],
               "type": {
-                "kind": "SCALAR",
-                "name": "Boolean",
-                "ofType": null
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "SCALAR",
+                  "name": "Boolean",
+                  "ofType": null
+                }
+              },
+              "isDeprecated": false,
+              "deprecationReason": null
+            },
+            {
+              "name": "todoList",
+              "description": "",
+              "args": [],
+              "type": {
+                "kind": "NON_NULL",
+                "name": null,
+                "ofType": {
+                  "kind": "LIST",
+                  "name": null,
+                  "ofType": {
+                    "kind": "OBJECT",
+                    "name": "todo",
+                    "ofType": null
+                  }
+                }
               },
               "isDeprecated": false,
               "deprecationReason": null

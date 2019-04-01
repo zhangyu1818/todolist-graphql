@@ -33,59 +33,67 @@ const add = async content => {
         variables: { content },
         mutation: gql`
             mutation add($content: String!) {
-                addTodo(content: $content) {
+                data:addTodo(content: $content) {
                     success
+                    todoList{
+                        _id
+                        content
+                        completed
+                    }
                 }
             }
         `
-    }).then(async () => {
-        await Client.resetStore();
-        return await getList();
-    });
+    })
 };
 const deleteTodo = async ids => {
     return await Client.mutate({
         variables: { ids },
         mutation: gql`
             mutation delete($ids: [ID]!) {
-                deleteTodo(_id: $ids) {
+                data:deleteTodo(_id: $ids) {
                     success
+                    todoList{
+                        _id
+                        content
+                        completed
+                    }
                 }
             }
         `
-    }).then(async () => {
-        await Client.resetStore();
-        return await getList();
-    });
+    })
 };
 const editTodo = async (id, content) => {
     return await Client.mutate({
         variables: { id, content },
         mutation: gql`
             mutation edit($id: ID!, $content: String!) {
-                editTodo(_id: $id, content: $content) {
+                data:editTodo(_id: $id, content: $content) {
                     success
+                    todoList{
+                        _id
+                        content
+                        completed
+                    }
                 }
             }
         `
-    }).then(async () => {
-        await Client.resetStore();
-        return await getList();
-    });
+    })
 };
 const setCompleted = async (id, completed) => {
     return await Client.mutate({
         variables: { id, completed },
         mutation: gql`
             mutation setCompleted($id: ID!, $completed: Boolean!) {
-                setCompleted(_id: $id, completed: $completed) {
+                data:setCompleted(_id: $id, completed: $completed) {
                     success
+                    todoList{
+                        _id
+                        content
+                        completed
+                    }
                 }
             }
         `
-    }).then(async () => {
-        await Client.resetStore();
-        return await getList();
     });
 };
 export { getList, add, deleteTodo, editTodo, searchTodo, setCompleted };

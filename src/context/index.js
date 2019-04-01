@@ -1,16 +1,7 @@
-import React, { useEffect, useReducer } from "react";
-import ApolloClient                     from "apollo-boost";
-import { ApolloProvider }               from "react-apollo";
-import {
-    add,
-    deleteTodo,
-    editTodo,
-    getList,
-    searchTodo,
-    setCompleted
-}                                       from "../client";
-import { InMemoryCache }                from "apollo-cache-inmemory";
-import { HttpLink }                     from "apollo-link-http";
+import React, { useEffect, useReducer }                                 from "react";
+import ApolloClient                                                     from "apollo-boost";
+import { ApolloProvider }                                               from "react-apollo";
+import { add, deleteTodo, editTodo, getList, searchTodo, setCompleted } from "../client";
 
 const initialState = {
     todoList: [],
@@ -25,14 +16,8 @@ const Context = React.createContext({
     }
 });
 
-const cache = new InMemoryCache();
-const link = new HttpLink({
-    uri: "http://localhost:4000/"
-});
-const Client = new ApolloClient({
-    cache,
-    link
-});
+
+const Client = new ApolloClient();
 const reducer = (state, action) => {
     switch (action.type) {
         case "GET_LIST": {
